@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Designações</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Menu de Navegação -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h1>Menu</h1>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+    <div class="navbar-brand">
+    </div>
+    <ul class="navbar-links" id="navbar-links">
+        <li><a href="territorios.html">Territórios</a></li>
+        <li><a href="saidas_campo.html">Saídas de Campo</a></li>
+        <li><a href="designacao.html" class="active">Designações</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
+    </ul>
+</nav>
+
+
+<!-- Container Principal -->
+<div class="container">
+    <h1>Gerenciador de Designações</h1>
+
+    <div id="loader" class="loader" style="display: none;"></div>
+
+    <!-- Formulário de Designações -->
+    <div class="form-container">
+        <label for="territorio-select">Território:</label>
+        <select id="territorio-select" required>
+            <option value="" disabled selected>Selecione o Território</option>
+            <!-- Opções serão carregadas dinamicamente -->
+        </select>
+        <small class="form-hint">Escolha um território para a designação</small>
+
+        <label for="saida-campo-select">Saída de Campo:</label>
+        <select id="saida-campo-select" required>
+            <option value="" disabled selected>Selecione a Saída de Campo</option>
+            <!-- Opções serão carregadas dinamicamente -->
+        </select>
+        <small class="form-hint">Escolha uma saída de campo associada ao território</small>
+
+        <label for="data-designacao">Data de Designação:</label>
+        <input type="date" id="data-designacao" placeholder="Data de Designação" required>
+        <small class="form-hint">Selecione a data de início da designação</small>
+
+        <label for="data-devolucao">Data de Devolução:</label>
+        <input type="date" id="data-devolucao" placeholder="Data de Devolução" required>
+        <small class="form-hint">Selecione a data de devolução prevista</small>
+
+        <button id="add-btn">Designar</button>
+        <button id="update-btn" style="display: none;">Atualizar</button>
+    </div>
+
+    <!-- Tabela para Visualizar as Designações -->
+    <div class="conteiner">
+        <table id="designacoes-table">
+            <thead>
+                <tr>
+                    <th data-column="territorio_nome" data-order="asc">Território</th>
+                    <th data-column="endereco_nao_bater" data-order="asc">Endereço de Não Bater</th>
+                    <th data-column="saida_nome" data-order="asc">Saída de Campo</th>
+                    <th data-column="data_designacao" data-order="asc">Data de Designação</th>
+                    <th data-column="data_devolucao" data-order="asc">Data de Devolução</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- As linhas serão adicionadas dinamicamente aqui -->
+            </tbody>
+        </table>
+    </div>
+</div>
+    
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navbarMenu = document.querySelector('.navbar ul');
+
+        hamburger.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
+    </script>
+
+<!-- JavaScript para funcionalidade do menu e tabela -->
+<script src="designacao.js"></script>
+
+</body>
+</html>

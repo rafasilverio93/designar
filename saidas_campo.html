@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Saídas de Campo</title>
+        <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="loading-spinner" style="display: none;">Carregando...</div>
+
+    <!-- Menu de Navegação -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h1>Menu</h1>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    <ul class="navbar-links" id="navbar-links">
+        <li><a href="territorios.html">Territórios</a></li>
+        <li><a href="saidas_campo.html" class="active">Saídas de Campo</a></li>
+        <li><a href="designacao.html">Designações</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
+    </ul>
+</nav>
+
+    
+<div class="container">
+            <h1>Gerenciador de Saídas de Campo</h1>
+
+    <label for="saida-campo">Nome da Saída de Campo:</label>
+    <input type="text" id="saida-campo" placeholder="Digite o nome da saída de campo" required>
+    <small class="form-hint">Ex.: Visita Semanal</small>
+
+    <label for="dia-semana">Dia da Semana:</label>
+    <select id="dia-semana" required>
+        <option value="" disabled selected>Selecione o Dia da Semana</option>
+        <option value="Domingo">Domingo</option>
+        <option value="Segunda-feira">Segunda-feira</option>
+        <option value="Terça-feira">Terça-feira</option>
+        <option value="Quarta-feira">Quarta-feira</option>
+        <option value="Quinta-feira">Quinta-feira</option>
+        <option value="Sexta-feira">Sexta-feira</option>
+        <option value="Sábado">Sábado</option>
+    </select>
+    <small class="form-hint">Escolha o dia da semana para a saída de campo</small>
+
+    <button id="add-btn">Adicionar</button>
+    <button id="update-btn" style="display: none;">Atualizar</button>
+</div>
+
+        <div class="container">
+
+        <!-- Tabela para Visualizar as Saídas de Campo -->
+        <table id="saidas-campo-table">
+            <thead>
+                <tr>
+                    <th>Saída de Campo</th>
+                    <th>Dia da Semana</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- As linhas serão adicionadas dinamicamente aqui -->
+            </tbody>
+        </table>
+    </div>
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navbarMenu = document.querySelector('.navbar ul');
+
+  hamburger.addEventListener('click', () => {
+    navbarMenu.classList.toggle('active');
+  });
+</script>
+
+    <!-- JavaScript para funcionalidade do menu e tabela -->
+    <script src="saidas_campo.js"></script>
+    
+</body>
+</html>
